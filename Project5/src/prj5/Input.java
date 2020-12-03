@@ -5,6 +5,7 @@ package prj5;
  *
  */
 public class Input {
+    
     public static void main(String[] s)
     {
         CFRReader scan = null;
@@ -13,8 +14,9 @@ public class Input {
             scan = new CFRReader(s[0]);
         }
         else {
-            scan = new CFRReader("Cases_And_Deaths_by_race_CRDT_Sep2020.csv");
+            scan = new CFRReader("Cases_and_Deaths_by_race_CRDT_Sep2020.csv");
         }
+        new CovidWindow(scan);
         
     }
 }

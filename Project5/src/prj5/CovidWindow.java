@@ -36,12 +36,12 @@ public class CovidWindow {
         window.setSize(1000, 650);
         sortAlpha = new Button("Sort by Alpha");
         sortCFR = new Button("Sort by CFR");
-        representDC = new Button("Represent DC");
-        representGA = new Button("Represent GA");
-        representMD = new Button("Represent MD");
-        representNC = new Button("Represent NC");
-        representTN = new Button("Represent TN");
-        representVA = new Button("Represent VA");
+        representDC = new Button("DC");
+        representGA = new Button("GA");
+        representMD = new Button("MD");
+        representNC = new Button("NC");
+        representTN = new Button("TN");
+        representVA = new Button("VA");
         quit = new Button("Quit");
         window.addButton(quit, WindowSide.NORTH);
         window.addButton(sortAlpha, WindowSide.NORTH);
@@ -60,6 +60,7 @@ public class CovidWindow {
         representTN.onClick(this, "representCovidTN");
         representVA.onClick(this, "representCovidVA");
         window.setTitle("Covid Data");
+        
     }
 
 

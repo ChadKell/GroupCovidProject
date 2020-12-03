@@ -39,14 +39,14 @@ public class CFRReader {
                 raceList = new LinkedList<Race>();
                 for (int i = 0; i < race.length; i++) {
                     race[i] = new Race(raceName[i]);
-                    if (strings[i + 1] == "NA") {
+                    if (strings[i + 1].equals("NA")) {
                         race[i].setCases(-1);
                     }
                     else {
                         race[i].setCases(Integer.valueOf(strings[i + 1]));
                     }
 
-                    if (strings[i + 6] == "NA") {
+                    if (strings[i + 6].equals("NA")) {
                         race[i].setDeathCase(-1);
                     }
                     else {
@@ -61,6 +61,7 @@ public class CFRReader {
 
         }
         catch (FileNotFoundException e) {
+            System.out.println("I got here");
             e.printStackTrace();
         }
         catch (Exception e) {
