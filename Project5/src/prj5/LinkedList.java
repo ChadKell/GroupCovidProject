@@ -4,7 +4,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
 // Virginia Tech Honor Code Pledge:
 //
 // As a Hokie, I will conduct myself with honor and integrity at all times.
@@ -318,7 +317,7 @@ public class LinkedList<T> implements DLLInterface<T>, Iterable<T> {
             while (unsorted != null) {
                 Node nodeInsert = unsorted;
                 unsorted = unsorted.getNext();
-                this.insertInOrder(nodeInsert, comparator); 
+                this.insertInOrder(nodeInsert, comparator);
             }
         }
     }
@@ -331,13 +330,13 @@ public class LinkedList<T> implements DLLInterface<T>, Iterable<T> {
      *            the insert node
      */
     @SuppressWarnings("unchecked")
-    private void insertInOrder(Node nodeInsert, Comparator<T> comparator) { 
+    private void insertInOrder(Node nodeInsert, Comparator<T> comparator) {
         T item = nodeInsert.getData();
         Node current = firstNode;
         Node previous = null;
 
         while ((current != null) && (comparator.compare(item, current
-            .getData()) > 0)) { 
+            .getData()) > 0)) {
             previous = current;
             current = current.getNext();
         }
@@ -496,17 +495,41 @@ public class LinkedList<T> implements DLLInterface<T>, Iterable<T> {
      * returns size
      */
     public int size() {
-        
+
         return numberOfEntries;
     }
 
 
     @Override
-    /**
-     * kind of caught in a loop
-     */
-    public T get(String object) {       
+    public T get(String object) {
+        Iterator<T> iterator = iterator();
+        while (iterator.hasNext()) {
+            T data = iterator.next();
+            Race person = (Race)data;
+            if (person.getRace().equals(object)) {
+                return data;
+            }
+        }
         return null;
+    }
+
+
+    /**
+     * get for ints
+     * 
+     * @param index
+     * @return
+     */
+    public T get(int index) {
+        if (index >= numberOfEntries) {
+            throw new IndexOutOfBoundsException();
+        }
+        Node temp = firstNode;
+        for (int i = 0; i < index; i++) {
+            temp = temp.getNext();
+                
+        }
+        return temp.getData();
     }
 
 }

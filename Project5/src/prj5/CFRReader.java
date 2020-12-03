@@ -69,4 +69,8 @@ public class CFRReader {
         }
         return state;
     }
+    public State[] getState()
+    {
+        return state;
+    }
 }
