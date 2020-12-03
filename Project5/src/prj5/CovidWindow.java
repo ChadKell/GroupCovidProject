@@ -23,15 +23,15 @@ public class CovidWindow {
     private Button representNC;
     private Button representTN;
     private Button representVA;
-    private LinkedList<Race> list;
-    private Shape bars;
-    private TextShape glyphTitle;
+    private LinkedList<Race> graph;
+    private CFRReader covidReader;
+    
     /**
      * window constructor
      * @param cList
      */
-    public CovidWindow(LinkedList<Race> cList) {
-        list = cList;
+    public CovidWindow(CFRReader state) {
+        covidReader = state;
         window = new Window();
         window.setSize(1000, 650);
         sortAlpha = new Button("Sort by Alpha");
