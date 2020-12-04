@@ -95,7 +95,7 @@ public class CovidWindow {
         if (button.getTitle().equals("DC")) {
             currentState = states[0];
             curr = currentState.getName();
-            System.out.println(curr);
+            
         }
         else if (button.getTitle().equals("MD")) {
             currentState = states[2];
@@ -126,6 +126,7 @@ public class CovidWindow {
         {
             currentState.sortAlpha();
         }
+        System.out.println(curr);
         helpSort();
 
     }
@@ -172,21 +173,27 @@ public class CovidWindow {
         for (int i = 0; i < 5; i++) {
 
             if (graph.get(i).getCFR() <= 0) {
-                TextShape nA = new TextShape(100 + i * shapeSpacing, 225, "NA");
+                TextShape nA = new TextShape(115 + i * shapeSpacing, 225, "NA");
                 window.addShape(nA);
             }
             else {
-                System.out.println(graph.get(i).getCFR());
+               
                 Shape bars = new Shape(100 + i * shapeSpacing, 225
                     - (int)((heightChanger / 10) * graph.get(i).getCFR()), 50,
                     (int)((heightChanger / 10) * graph.get(i).getCFR()));
-                TextShape numb = new TextShape(100 + i * shapeSpacing, 225,
+                TextShape numb = new TextShape(110 + i * shapeSpacing, 225,
                     Double.toString(Math.round(graph.get(i).getCFR() * 10)
                         / 10.0));
+              
                 window.addShape(bars);
                 window.addShape(numb);
             }
+            TextShape racer = new TextShape(105 + i *shapeSpacing,240,graph.get(i).getRace());
+            window.addShape(racer);
+           
         }
+        TextShape currState = new TextShape(270, 100,currentState.getName());
+        window.addShape(currState);
     }
 
 }

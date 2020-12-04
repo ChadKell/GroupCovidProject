@@ -25,17 +25,18 @@ public class CFRReader {
      *         the state object
      */
     private State[] readStateFile(String filename) {
-        state = new State[5];
+        state = new State[6];
         race = new Race[5];
         File file = new File(filename);
 
         try {
             Scanner scanner = new Scanner(file);
             scanner.nextLine();
+            int num = 0;
             while (scanner.hasNextLine()) {
                 String string = scanner.nextLine();
                 String[] strings = string.split(",");
-                int num = 0;
+
                 raceList = new LinkedList<Race>();
                 for (int i = 0; i < race.length; i++) {
                     race[i] = new Race(raceName[i]);
@@ -57,6 +58,7 @@ public class CFRReader {
                 }
                 state[num] = new State(strings[0]);
                 state[num].setRace(raceList);
+                num++;
             }
 
         }
