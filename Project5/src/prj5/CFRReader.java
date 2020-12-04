@@ -26,7 +26,7 @@ public class CFRReader {
      */
     private State[] readStateFile(String filename) {
         state = new State[5];
-        race = new Race[4];
+        race = new Race[5];
         File file = new File(filename);
 
         try {

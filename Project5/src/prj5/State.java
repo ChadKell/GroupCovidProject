@@ -37,7 +37,27 @@ public class State {
     }
     
     public void sortCFR() {
-        race.insertionSort(new compareCFR());
+        System.out.println("here homie");
+        prj5.LinkedList<Race> placeholder = new prj5.LinkedList<Race>();
+        for(int i = 0; i < 5; i++)
+        {
+            int index = 0;
+            double max = 0;
+            for (int j = 0; i < race.getLength(); i++)
+            {
+                if (race.get(j).getCFR() > max)
+                {
+                    index = j;
+                    max = race.get(j).getCFR();
+                }
+               
+            }
+            placeholder.add(race.get(index));
+            
+            System.out.println(race.remove(index));
+            
+        }
+        race = placeholder;
     }
     
 
